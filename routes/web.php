@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('main');
 //--------Lista completa de productos
-Route::get('products', function () {
+/*Route::get('products', function () {
     //return view('welcome');
     return 'This is the list of products';
 })->name('products.index');
+*/
+Route::get('products',[ProductController::class,'index']);
 
 //--------Añadir un producto
 Route::get('products/create', function () {
@@ -54,3 +57,4 @@ Route::match(['put','patch'], 'products/{product}', function ($product) {
 Route::delete('products/{product}', function ($product){
     //
 })->name('products.destroy');
+
