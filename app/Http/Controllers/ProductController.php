@@ -17,7 +17,8 @@ class ProductController extends Controller
         //
     }
     public function show($product){
-        return "Showing product with id {$product}";
+        $product = Product::findOrFail($product);
+        return view('products.show');
     }
     public function edit($product){
         return "Editing product with id {$product}";
