@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.master')
+@section('content')
+    
+
     <h1>Products List</h1>
-   <!-- @if(empty($products)) -->
+ 
     @empty($products)
         <div class="alert alert-warning">This list is empty</div>
     @else
@@ -37,8 +33,6 @@
                 </tbody>
             </table>
         </div>
-    <!--@endif-->
+   
     @endempty
-
-</body>
-</html>
+@endsection
