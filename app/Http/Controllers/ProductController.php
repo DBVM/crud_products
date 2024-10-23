@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function __invoke(){
-        $produts = product::all(); //con eloquent
-        return view('products.index');
+        //$produts = product::all(); //con eloquent
+        return view('products.index')->with([
+            'products'=> Product::all(),
+        ]);
     }
     public function create() {
         return 'This is the form to create a prd from controller';
