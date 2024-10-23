@@ -13,10 +13,10 @@ class ProductController extends Controller
         ]);
     }
     public function create() {
-        return 'This is the form to create a prd from controller';
+        return view('products.create');
     }
     public function store(){
-        //
+        
     }
     public function show($product){
         $product = Product::findOrFail($product);
