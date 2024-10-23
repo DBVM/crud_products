@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Products List</h1>
-    @if(empty($products))
+   <!-- @if(empty($products)) -->
+    @empty($products)
         <div class="alert alert-warning">This list is empty</div>
     @else
         <div class="table-responsive">
@@ -36,7 +37,8 @@
                 </tbody>
             </table>
         </div>
-    @endif
+    <!--@endif-->
+    @endempty
 
 </body>
 </html>
