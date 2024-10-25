@@ -16,7 +16,7 @@ class ProductController extends Controller
         return view('products.create');
     }
     public function store(){
-        
+        $product = product::create(request()->all());
     }
     public function show($product){
         $product = Product::findOrFail($product);
