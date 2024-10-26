@@ -28,7 +28,10 @@ class ProductController extends Controller
         return "Editing product with id {$product}";
     }
     public function update(){
-        //
+        $product = product::findOrFail($product);
+
+        $product ->update(request()->all());
+        return $product;
     }
     public function destroy() {
         //
