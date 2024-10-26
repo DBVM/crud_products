@@ -67,10 +67,6 @@ Route::get('products/{product}',[ProductController::class, 'show'])->name('produ
 
 Route::get('products/{product}/edit',[ProductController::class, 'edit'])->name('products.show');
 //--------
-Route::match(['put','patch'], 'products/{product}', function ($product) {
-   //
-})->name('products.update');
+Route::match(['put','patch'], 'products/{product}', [ProductController::class,'update'])->name('products.update');
 //--------delete
-Route::delete('products/{product}', function ($product){
-    //
-})->name('products.destroy');
+Route::delete('products/{product}', [ProductController::class,'destroy'])->name('products.destroy');
