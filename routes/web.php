@@ -47,9 +47,9 @@ Route::get('products/create',[ProductController::class, 'create'])->name('produc
 
 
 //-------Petición de tipo post
-Route::post('products', function () {
-    //
-})->name('products.store');
+Route::post('products',[ProductController::class,'store'])->name('products.store');
+
+
 
 //--------Mostrar detalles del producto
 /*Route::get('products/{product}', function ($product) {
