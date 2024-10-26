@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function edit($product){
         return "Editing product with id {$product}";
     }
-    public function update(){
+    public function update($product){
         $product = product::findOrFail($product);
 
         $product ->update(request()->all());
