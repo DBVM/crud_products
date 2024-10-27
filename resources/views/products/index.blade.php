@@ -4,6 +4,7 @@
 
     <h1>Products List</h1>
  
+    <a href="{{route('products.create')}}" class="href">Create a product</a>
     @empty($products)
         <div class="alert alert-warning">This list is empty</div>
     @else
