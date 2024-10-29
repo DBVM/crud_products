@@ -63,3 +63,20 @@ img{
 .centrar-texto{
     text-align:center;
 }
+.parent {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows:10rem ;
+    gap: 2rem;
+}
+    
+.div1 {
+    grid-column: span 1;
+    
+}
+
+.div3 {
+    grid-row: span 2;
+    grid-row-start: 2;
+}
+     

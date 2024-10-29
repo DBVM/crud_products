@@ -14,6 +14,12 @@
     <title>Learn Laravel</title>
 </head>
 <body>
-    @yield('content')
+    <div class="div1">
+        <H1>Div1</H1>
+    </div>
+ 
+    <div class="div3">
+         @yield('content')
+    </div>
 </body>
 </html>
