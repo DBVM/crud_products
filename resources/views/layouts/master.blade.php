@@ -14,6 +14,11 @@
     <title>Learn Laravel</title>
 </head>
 <body>
+    @if (@session()->has('error'))
+    <div>
+        {{session()->get('error') }}
+    </div>
+@endif
     <div class="div1">
         <H1>Div1</H1>
     </div>
