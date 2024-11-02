@@ -18,11 +18,17 @@
     <div>
         {{session()->get('error') }}
     </div>
-@endif
-    <div class="div1">
-        <H1>Div1</H1>
+    @endif
+    @if (isset($errors) && $errors->any())
+    <div class="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li> {{ $error }} </li>
+            @endforeach
+        </ul>
     </div>
- 
+    @endif
+
     <div class="div3">
          @yield('content')
     </div>

@@ -17,6 +17,16 @@ class ProductController extends Controller
     }
     public function store(){
 
+        $rules = [
+            'title' => ['required', 'max:255'],
+            'description' => ['required', 'max:1000'],
+            'price' => ['required', 'min:1'],
+            'stock' =>  ['required', 'min:0'],
+            'status'=> ['required', 'in:available,unavailable'],
+        ];
+
+        request()->validate($rules);
+
         if(request()->status == 'available' && request()->stock == 0){
     
         session()->flash('error','If available must have stock');
@@ -37,6 +47,16 @@ class ProductController extends Controller
         return "Editing product with id {$product}";
     }
     public function update($product){
+        $rules = [
+            'title' => ['required', 'max:255'],
+            'description' => ['required', 'max:1000'],
+            'price' => ['required', 'min:1'],
+            'stock' =>  ['required', 'min:0'],
+            'status'=> ['required', 'in:available,unavailable'],
+        ];
+
+        request()->validate($rules);
+        
         $product = product::findOrFail($product);
 
         $product ->update(request()->all());
