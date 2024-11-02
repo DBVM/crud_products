@@ -14,11 +14,7 @@
     <title>Learn Laravel</title>
 </head>
 <body>
-    @if (@session()->has('error'))
-    <div>
-        {{session()->get('error') }}
-    </div>
-    @endif
+   
     @if (session()->has('success'))
     <div class="succes">
         {{session()->get('success') }}

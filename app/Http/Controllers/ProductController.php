@@ -33,14 +33,17 @@ class ProductController extends Controller
 
         if (request()->status == 'available' && request()->stock == 0) {
 
-            session()->flash('error', 'If available must have stock');
-            return redirect()->back();
+            return redirect()
+                            ->back()
+                            ->withErrors('If available must have stock');//reemplaza el session flash;
         }
 
-        session()->flash('success',"Your new product with id {$product->id} has already stored succesfully");
+        
         $product = product::create(request()->all());
 
-        return redirect()->route('products.index');
+        return redirect()
+                        ->route('products.index')
+                        ->withSuccess("Your new product with id {$product->id} has already stored succesfully");
     }
     public function show($product)
     {
@@ -70,19 +73,27 @@ class ProductController extends Controller
 
         if (request()->status == 'available' && request()->stock == 0) {
 
-            session()->flash('error', 'If available must have stock'); //Hace que el error solo esté disponible hasta la siguiente petición
+            //session()->flash('error', 'If available must have stock'); //Hace que el error solo esté disponible hasta la siguiente petición
 
-            return redirect()->back()->withInput(request()->all());
+            return redirect()
+                            ->back()
+                            ->withInput(request()->all())
+                            ->withErrors('If available must have stock');//reemplaza el session flash;
+                            
         }
         $product = product::findOrFail($product);
 
         $product->update(request()->all());
-        return redirect()->route('products.index');
+        return redirect()
+                        ->route('products.index')
+                        ->withSuccess("Your new product with id {$product->id} has been updated succesfully");;
     }
     public function destroy($product)
     {
         $product = product::findOrFail($product);
         $product->delete();
-        return redirect()->route('products.index');
+        return redirect()
+                        ->route('products.index')
+                        ->withSuccess("Your new product with id {$product->id} has already deleted succesfully");;
     }
 }
