@@ -19,6 +19,11 @@
         {{session()->get('error') }}
     </div>
     @endif
+    @if (session()->has('success'))
+    <div class="succes">
+        {{session()->get('success') }}
+    </div>
+@endif
     @if (isset($errors) && $errors->any())
     <div class="alert">
         <ul>

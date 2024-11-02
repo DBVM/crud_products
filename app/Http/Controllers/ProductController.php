@@ -37,6 +37,7 @@ class ProductController extends Controller
             return redirect()->back();
         }
 
+        session()->flash('success',"Your new product with id {$product->id} has already stored succesfully");
         $product = product::create(request()->all());
 
         return redirect()->route('products.index');
