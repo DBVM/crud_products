@@ -70,3 +70,6 @@ Route::get('products/{product}/edit',[ProductController::class, 'edit'])->name('
 Route::match(['put','patch'], 'products/{product}', [ProductController::class,'update'])->name('products.update');
 //--------delete
 Route::delete('products/{product}', [ProductController::class,'destroy'])->name('products.destroy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
