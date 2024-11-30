@@ -20,8 +20,8 @@ class Order extends Model
     public function payment(){
         return $this->hasOne(Payment::class);
     }
-    public function order(){
-        return $this->belongsTo(User::class);
+    public function user(){
+        return $this->belongsTo(User::class,'customer_id');
     }
     
 }

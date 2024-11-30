@@ -48,7 +48,8 @@ class User extends Authenticatable
    ];
 
    public function orders(){
-    return $this->hasMany(Order::class);//relación uno a muchos
+    return $this->hasMany(Order::class,'customer_id');//relación uno a muchos
     //Un usuario(cliente) puede tener más de 1 orden
+    //Y se indica el nombre de la columna en caso de que no sea 'id'
    }
 }
