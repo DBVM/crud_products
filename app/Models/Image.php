@@ -12,4 +12,9 @@ class Image extends Model
     protected $fillable = [
         'path'
     ];
+
+    public function imageable(){
+        //atributo morphs de la migración
+        return $this->morphTo(); //Laravel automáticamente determina si es de user o de product el registro
+    }
 }

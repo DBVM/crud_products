@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Order;
 use App\Models\Payment;
+use App\Models\Image;
 
 class User extends Authenticatable
 {
@@ -57,5 +58,9 @@ class User extends Authenticatable
     return $this->hasManyThrough(Payment::class, Order::class, 'customer_id');
     /* Desde user puedes acceder a los pagos de un usuario por medio de la relación que tiene user con order
      */
+   }
+   public function image(){
+    //Relacion de 1 a 1
+    return $this->morphOne(Image::class,'imageable');
    }
 }
