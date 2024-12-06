@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Order;
+use App\Models\Payment;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,10 @@ class User extends Authenticatable
     return $this->hasMany(Order::class,'customer_id');//relación uno a muchos
     //Un usuario(cliente) puede tener más de 1 orden
     //Y se indica el nombre de la columna en caso de que no sea 'id'
+   }
+   public function payments(){
+    return $this->hasManyThrough(Payment::class, Order::class, 'customer_id');
+    /* Desde user puedes acceder a los pagos de un usuario por medio de la relación que tiene user con order
+     */
    }
 }
