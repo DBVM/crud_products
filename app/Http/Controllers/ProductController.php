@@ -13,7 +13,8 @@ class ProductController extends Controller
     }
     public function __invoke()
     {
-        //$produts = product::all(); //con eloquent
+        $products = product::available()->get();
+        //$products = product::all(); //con eloquent
         return view('products.index')->with([
             'products' => Product::all(),
         ]);

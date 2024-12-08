@@ -30,4 +30,8 @@ class Product extends Model
         //un producto puede tener varias imagenes
         return $this->morphToMany(Image::class,'imageable');
     }
+
+    public function scopeAvailable($query){
+        $query->where('status', 'available');
+    }
 }
